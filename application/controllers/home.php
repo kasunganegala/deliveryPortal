@@ -1,12 +1,16 @@
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class Signup extends CI_Controller {
+class Home extends CI_Controller {
 	
 	public function index()
 	{
-		$this->header('Delivery - signup');
-		$this->load->view('v_signup');
-		$this->footer();
+		if($this->session->userdata('username')){
+			$this->header('Delivery - signin');
+			$this->load->view('v_home');
+			$this->footer();
+		}else{
+			redirect('signin');
+		}
 	}
 	
 	function header($tile){
@@ -25,7 +29,5 @@ class Signup extends CI_Controller {
 	public function footer()
 	{
 		$this->load->view('footer');
-		
 	}
-	
 }

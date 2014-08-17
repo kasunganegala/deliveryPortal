@@ -30,7 +30,7 @@
 				<input type="password" class="form-control" name="password" placeholder="Retype password" />
 				<span class="input-icon fui-lock"></span>
 			</div>
-			<input type="submit" name="asd"  class="btn btn-primary btn-block" value="SIGN UP">
+			<input type="submit" name="asd"  class="btn btn-embossed btn-primary btn-block" value="SIGN UP">
 		<?php
 			form_close();
 		?>

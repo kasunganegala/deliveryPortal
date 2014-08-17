@@ -38,8 +38,9 @@
 |
 */
 
-$route['default_controller'] = "signin";
+$route['default_controller'] = "home";
 $route['404_override'] = '';
+$route['company/([0-9]+)'] = 'company/by_id/$1';
 
 
 /* End of file routes.php */

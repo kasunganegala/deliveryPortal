@@ -21,7 +21,7 @@
 				<input type="password" class="form-control" name="password" placeholder="Password" />
 				<label class="input-icon fui-lock"></label>
 			</div>
-			<input type="submit" name="asd"  class="btn btn-primary btn-block" value="SIGN IN">
+			<input type="submit" name="asd"  class="btn btn-embossed btn-primary btn-block" value="SIGN IN">
 			
 		<?php
 			form_close();

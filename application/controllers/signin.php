@@ -24,17 +24,33 @@ class Signin extends CI_Controller {
 			$this->form_validation->set_rules('useremail','','required|trim|xss_clean|valid_email|callback_by_email');
 			$this->form_validation->set_message('required', 'Email/password invalid');
 			$this->form_validation->set_message('valid_email', 'Email/password invalid');
+			$login_type='email';
+			
 		}else{
 		    $this->form_validation->set_rules('useremail','','required|trim|xss_clean|callback_by_username');
 			$this->form_validation->set_message('required', 'Username/password invalid');
+			$login_type='username';
 		}
 		
 		if($this->form_validation->run()){
-			$this->header('Delivery - Success');
-			$this->load->view('v_signin');
-			$this->footer();
+			$select=$this->input->post('useremail');
+			$this->load->model('m_signin');
+			$data=array();
+			$dataset1 = $this->m_signin->login_userdata_1($login_type,$select);
+			foreach ($dataset1 as $info) {
+				$data['username'] = $info->username; 
+				$data['email'] = $info->email;	
+				$data['name'] = $info->name;	
+				$data['company_id'] = $info->company_id;	
+			}
+			$dataset2 = $this->m_signin->login_userdata_2($data['company_id']);
+			foreach ($dataset2 as $info){
+				$data['company_name'] = $info->company_name;	
+			}
+			$this->session->set_userdata($data);
+			redirect('home');
 		}else{
-			$this->header('Delivery - signin');
+			$this->header('Delivery - asdasd');
 			$this->load->view('v_signin');
 			$this->footer();
 		}

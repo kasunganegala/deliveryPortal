@@ -6,5 +6,6 @@
     <script src="<?php echo base_url()?>js/flatui-radio.js"></script>
     <script src="<?php echo base_url()?>js/jquery.tagsinput.js"></script>
     <script src="<?php echo base_url()?>js/jquery.placeholder.js"></script>
+    </div>
   </body>
 </html>

@@ -21,13 +21,13 @@
       <script src="<?php echo base_url()?>js/respond.min.js"></script>
     <![endif]-->
   </head>
-  <body class="palette-peter-river">
+<body class="palette-peter-river">
 <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
-	<a class="navbar-brand" href="">
+	<a class="navbar-brand" href="<?php echo base_url()?>">
 		ePortal - Delivery service
 	</a>
 	<p class="navbar-text navbar-right" style="margin-right: 20px">
-		<a href="<?php echo base_url()?>signup"><button class="btn btn-warning btn-xs"><b>SIGNUP</b></button></a>&nbsp;
-		<a href="<?php echo base_url()?>signin"><button class="btn btn-success btn-xs"><b>SIGNIN</b></button></a>
+		<a href="<?php echo base_url()?>signup"><button class="btn btn-embossed btn-warning btn-xs"><b>SIGNUP</b></button></a>&nbsp;
+		<a href="<?php echo base_url()?>signin"><button class="btn btn-embossed btn-success btn-xs"><b>SIGNIN</b></button></a>
 	</p>
 </nav>

@@ -3659,8 +3659,20 @@ fieldset[disabled] .twitter-typeahead .tt-hint {
   color: #ffffff;
   margin: 0;
   padding: 15px;
-  text-transform: uppercase;
 }
+
+.palette > a ,
+.palette > div > a{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.palette > a:hover ,
+.palette > div > a:hover{
+  color: #333;
+  text-decoration: one;
+}
+
 .palette dt,
 .palette dd {
   line-height: 1.429;
