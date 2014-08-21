@@ -15,6 +15,16 @@
 
     <link rel="shortcut icon" href="images/favicon.ico">
 
+	<script src="<?php echo base_url()?>js/jquery-2.0.3.min.js"></script>
+    <script src="<?php echo base_url()?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>js/bootstrap-select.js"></script>
+    <script src="<?php echo base_url()?>js/bootstrap-switch.js"></script>
+    <script src="<?php echo base_url()?>js/flatui-checkbox.js"></script>
+    <script src="<?php echo base_url()?>js/flatui-radio.js"></script>
+    <script src="<?php echo base_url()?>js/jquery.tagsinput.js"></script>
+    <script src="<?php echo base_url()?>js/jquery.placeholder.js"></script>
+    <script src="<?php echo base_url()?>js/tab.js"></script>
+    <script src="<?php echo base_url()?>js/tooltip.js"></script>
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
     <!--[if lt IE 9]>
       <script src="<?php echo base_url()?>js/html5shiv.js"></script>
@@ -22,6 +32,7 @@
     <![endif]-->
   </head>
 <body class="palette-peter-river">
+
 <nav class="navbar navbar-inverse navbar-embossed" role="navigation">
 	<a class="navbar-brand" href="<?php echo base_url()?>">
 		ePortal - Delivery service

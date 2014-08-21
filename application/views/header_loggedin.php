@@ -12,6 +12,16 @@
     <link href="<?php echo base_url()?>css/flat-ui.css" rel="stylesheet">
      <link href="<?php echo base_url()?>css/sb-admin.css" rel="stylesheet">
 
+	<script src="<?php echo base_url()?>js/jquery-2.0.3.min.js"></script>
+    <script src="<?php echo base_url()?>js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>js/bootstrap-select.js"></script>
+    <script src="<?php echo base_url()?>js/bootstrap-switch.js"></script>
+    <script src="<?php echo base_url()?>js/flatui-checkbox.js"></script>
+    <script src="<?php echo base_url()?>js/flatui-radio.js"></script>
+    <script src="<?php echo base_url()?>js/jquery.tagsinput.js"></script>
+    <script src="<?php echo base_url()?>js/jquery.placeholder.js"></script>
+    <script src="<?php echo base_url()?>js/tab.js"></script>
+    <script src="<?php echo base_url()?>js/tooltip.js"></script>
     <link rel="shortcut icon" href="images/favicon.ico">
 
     <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
@@ -21,6 +31,7 @@
     <![endif]-->
   </head>
 <body class="palette-wet-asphalt" >
+
 <div id="wrapper">
 	<nav class="navbar navbar-inverse navbar-embossed navbar-fixed-top" role="navigation" style="padding-right: 30px;">
 		<a class="navbar-brand" href="<?php echo base_url()?>">

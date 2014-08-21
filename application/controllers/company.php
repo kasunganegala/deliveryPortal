@@ -66,6 +66,18 @@ class Company extends CI_Controller {
 		return $this->m_company->get_email_details($companyid);
 	}
 	
+	public function contributers($view=null){
+		if($view==null){
+			echo 'asda';
+		}else if($view=='add'){
+			
+		}else if($view=''){
+			
+		}else{
+			
+		}
+	}
+	
 	function header($tile){
 		$data['title']=$tile;
 		if($this->session->userdata('username')){
