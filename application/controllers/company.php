@@ -78,7 +78,7 @@ class Company extends CI_Controller {
 		}
 	}
 	
-	function header($tile){
+	private function header($tile){
 		$data['title']=$tile;
 		if($this->session->userdata('username')){
 			if($this->session->userdata('usertype')=='a'){
@@ -91,7 +91,7 @@ class Company extends CI_Controller {
 		}
 	}
 	
-	public function footer()
+	private function footer()
 	{
 		$this->load->view('footer');
 	}

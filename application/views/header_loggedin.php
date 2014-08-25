@@ -62,16 +62,16 @@
 		            <a href="javascript:;" data-toggle="collapse" data-target="#demo"><span class="glyphicon glyphicon-globe"></span>&nbsp;&nbsp;Deliveries <span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
 		            <ul id="demo" class="collapse">
 		                <li>
-		                    <a href="#">Pending</a>
+		                    <a href="<?php echo base_url()?>deliveries/pending">Pending</a>
 		                </li>
 		                <li>
-		                    <a href="#">Accepted</a>
+		                    <a href="<?php echo base_url()?>deliveries/accepted">Accepted</a>
 		                </li>
 		                <li>
-		                    <a href="#">Rejected</a>
+		                    <a href="<?php echo base_url()?>deliveries/rejected">Rejected</a>
 		                </li>
 		                <li>
-		                    <a href="#">Out of date</a>
+		                    <a href="<?php echo base_url()?>deliveries/out_of_date">Out of date</a>
 		                </li>
 		            </ul>
 		        </li>

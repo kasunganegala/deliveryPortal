@@ -41,6 +41,7 @@
 $route['default_controller'] = "home";
 $route['404_override'] = '';
 //$route['company/contributers/()'] = 'company/contributers/$1';
+//$route['deliveries/([a-zA-Z0-9]+)'] = 'deliveries/';
 $route['company/([0-9]+)'] = 'company/by_id/$1';
 
 
