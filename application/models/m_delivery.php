@@ -65,7 +65,9 @@ class M_delivery extends CI_Model {
 	}
 	
 	public function accepted_all($company_id){
-		$query = "";
+		$query = "SELECT id,accepted_username,DATE_FORMAT(accepted_dateandtime,'%D %M %Y, %r') as accepted_on,DATE_FORMAT(requested_dateandtime,'%D %M %Y, %r') as requested_on,ad_id,customer_username,delivery_location,DATE_FORMAT(delivery_dateandtime,'%D %M %Y') as delivery_on
+					FROM delivery_requests_accepted
+					ORDER BY accepted_dateandtime";
 		$result = $this->db->query($query);
 		return  $result->result();
 	}

@@ -24,11 +24,19 @@ class Deliveries extends CI_Controller {
 		}
 	}
 	
-	public function accepted($view=null){
+	public function accepted($view=null,$a_id=null){
 		if($view==null || $view=='all'){
 			$this->accepted_all();
 		}else if($view=='today'){
-			$this->accepted_today();		
+			$this->accepted_today();
+		}else if(($view=='cancel' || $view=='delivered') && $a_id!=null){
+			if($type = $this->accepted_cancel_or_complete($view,$id)){
+				$data['status']=$type;
+				$data['request_id']=$id;
+				$this->accepted_all($data);
+			}else{
+				show_error("unable to $view id: $a_id",'','ERROR!');
+			}	
 		}else{
 			show_404();
 		}
@@ -78,6 +86,8 @@ class Deliveries extends CI_Controller {
 				$data['pending_requests'][$key]['ad_subcategory']=$this->setup_ad_subcategory($value->subcategoryid);
 			}
 			
+			$data['viewing']['type']='all requests';
+			
 			$this->header('Pending deliveries');
 			$this->load->view('v_delivery_pending',$data);
 			$this->footer();
@@ -104,26 +114,32 @@ class Deliveries extends CI_Controller {
 		}
 
 		private function accepted_all($status_info=null){
+				
+			if($status_info!=null){
+				$data['status_info']['status']=$status_info['status'];
+				$data['status_info']['request_id']=$status_info['accept_id'];
+			}
+
 			$this->load->model('m_delivery');
 			$acepted = $this->m_delivery->accepted_all($this->session->userdata('company_id'));
 			
 			foreach($acepted as $key=>$value){
-				$data['accepted_requests'][$key]['dp_id']=$value->dp_id;
+				$data['accepted_requests'][$key]['accept_id']=$value->id;
 				$data['accepted_requests'][$key]['ad_id']=$value->ad_id;
-				$data['accepted_requests'][$key]['client_username']=$value->client_username;
-				$data['accepted_requests'][$key]['client_name']=$this->setup_names('client',$value->client_username);
+				$data['accepted_requests'][$key]['accepted_on']=$value->accepted_on;
+				$data['accepted_requests'][$key]['accepted_username']=$value->accepted_username;
+				$data['accepted_requests'][$key]['accepted_name']=$this->setup_names('delivery',$value->accepted_username);
+				$data['accepted_requests'][$key]['customer_username']=$value->customer_username;
+				$data['accepted_requests'][$key]['customer_name']=$this->setup_names('client',$value->customer_username);
 				$data['accepted_requests'][$key]['delivery_location']=$value->delivery_location;
-				$data['accepted_requests'][$key]['delivery_date']=$value->delivery_date;
+				$data['accepted_requests'][$key]['delivery_on']=$value->delivery_on;
 				$data['accepted_requests'][$key]['requested_on']=$value->requested_on;
-				$data['accepted_requests'][$key]['profilepicture']=$value->profilepicture;
-				$data['accepted_requests'][$key]['ad_title']=$value->title;
-				$data['accepted_requests'][$key]['ad_body']=$value->body;
-				$data['accepted_requests'][$key]['ad_category']=$this->setup_ad_category($value->categoryid);
-				$data['accepted_requests'][$key]['ad_subcategory']=$this->setup_ad_subcategory($value->subcategoryid);
 			}
 			
+			$data['viewing']['type']='all accepted requests';
+			
 			$this->header('Pending deliveries');
-			$this->load->view('v_delivery_pending',$data);
+			$this->load->view('v_delivery_accepted',$data);
 			$this->footer();
 		}
 		
@@ -160,6 +176,11 @@ class Deliveries extends CI_Controller {
 			$name = $this->m_clients->get_name($usertype,$username);
 			foreach ($name as $info){$name = $info->name;}
 			return $name;
+		}else if($type=='delivery'){
+			$this->load->model('m_company');
+			$name = $this->m_company->get_name($username);
+			foreach ($name as $info){$name = $info->name;}
+			return $name;
 		}else{
 			return 'the return :P ';
 		}
@@ -174,9 +195,9 @@ class Deliveries extends CI_Controller {
 
 	private function setup_ad_subcategory($id){
 		$this->load->model('m_advertisement');
-			$sname = $this->m_advertisement->get_subcategory_name($id);
-			foreach ($sname as $info){$sname = $info->name;}
-			return $sname;
+		$sname = $this->m_advertisement->get_subcategory_name($id);
+		foreach ($sname as $info){$sname = $info->name;}
+		return $sname;
 	}
 	
 	private function show_success($type,$header,$array){

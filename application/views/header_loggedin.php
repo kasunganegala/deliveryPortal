@@ -76,17 +76,10 @@
 		            </ul>
 		        </li>
 		        <li>
-		            <a href="forms.html"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Add new contributer</a>
+		            <a href="<?php echo base_url()?>contributers"><span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;Contributers</a>
 		        </li>
 		        <li>
 		            <a href="bootstrap-elements.html"><span class="glyphicon glyphicon-envelope"></span>&nbsp;&nbsp;Send customer e-mail</a>
-		        </li>
-		        <li>
-		            <a href="bootstrap-grid.html"><span class="glyphicon glyphicon-star"></span>&nbsp;&nbsp;Feedbacks</a>
-		        </li>
-		        
-		        <li class="">
-		            <a href="blank-page.html"><span class="glyphicon glyphicon-search"></span> Blank Page</a>
 		        </li>
 		    </ul>
 		</div>     

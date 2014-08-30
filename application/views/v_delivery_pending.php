@@ -1,7 +1,9 @@
 <div id="page-wrapper" style="background-color: #FFFFFF;min-height: 400px;">
 	<div class="col-md-12">
-		<div class="h3">
-			Pending deliveries 			
+		<div class="h3 text-center">
+			Pending deliveries
+			<br />
+			<small> viewing <?php echo $viewing['type'] ?></small>			
 		</div>
 		<hr />
 		

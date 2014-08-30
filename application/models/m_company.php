@@ -48,4 +48,27 @@ class M_company extends CI_Model {
 		if($result->num_rows() == 1){return true;}
 		else{return false;}
 	}
+
+	public function is_a_username($username){
+		$result = $this->db->query("SELECT * FROM users WHERE username = '{$username}'");
+		if($result->num_rows() == 1){return true;}
+		else{return false;}
+	}
+	
+	public function get_name($username){
+		$query="SELECT  CONCAT(first_name, ' ', last_name) As name 
+				FROM delivery_company_users 
+				WHERE username = '{$username}'";
+		$result = $this->db->query($query);
+		return $result->result();
+	}
+	
+	public function get_contributers($company_id){
+		$query="SELECT id,username,email,CONCAT(first_name, ' ', last_name) As name,activation_type,DATE_FORMAT(registered_dateandtime,'%D %M %Y') as registered_on,DATE_FORMAT(dateandtime,'%D %M %Y') as last_updated_on 
+				FROM delivery_company_users
+				WHERE company_id='{$company_id}'";
+		
+		$result = $this->db->query($query);
+		return $result->result();
+	}
 }
